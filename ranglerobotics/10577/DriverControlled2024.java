@@ -15,7 +15,6 @@ import java.util.ArrayList;
 @TeleOp
 public class DriverControlled extends OpMode 
 {
-    private Servo Claw; 
     
     //DEFINE robot 
     RobotHardware robot = new RobotHardware();
@@ -43,24 +42,17 @@ public class DriverControlled extends OpMode
     
     //LOOP ON start()
     @Override
+    //We want to add the Servo controls  onto the Gamepad2
     public void loop(){
         double G1rightStickY = gamepad1.right_stick_y;
         double G1leftStickY = gamepad1.left_stick_y;
         boolean G1rightBumper = gamepad1.right_bumper;
         boolean G1leftBumper = gamepad1.left_bumper;
-        float G1leftTrigger = gamepad1.left_trigger;
-        float G1rightTrigger = gamepad1.right_trigger;
         float G2rightTrigger = gamepad2.right_trigger;
         double G2rightStickY = gamepad2.right_stick_y;
-        float G2leftTrigger = gamepad2.left_trigger;
         double G2leftStickY = gamepad2.left_stick_y;
-        boolean G2leftBumper = gamepad2.left_bumper; 
-        boolean G2rightBumper = gamepad2.right_bumper; 
-     
         
-    
- 
-
+  //We want to add the Servo Motor to open and close the Claw
    if (G1rightBumper) {
             robot.backLeft.setPower(1);
             robot.frontLeft.setPower(-1);
@@ -84,10 +76,7 @@ public class DriverControlled extends OpMode
             robot.InTake.setPower(G2rightTrigger);
             robot.InTake.setPower(G2leftTrigger);
             robot.Arm.setPower(G2leftStickY);
-            robot.Arm.setPower(G2rightStickY);
-            
-            
-            
+            robot.Arm.setPower(G2rightStickY);  
         }
         }
         
